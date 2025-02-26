@@ -1,4 +1,5 @@
 import 'package:diary/home/home.dart';
+import 'package:diary/section/settings.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -37,6 +38,9 @@ class _MyHomePageState extends State<MyHomePage> {
         primaryColor: Colors.teal,
       ),
       home: const HomeScreen(),
+      routes: {
+        'settings': (context) => const Settings(),
+      },
       debugShowCheckedModeBanner: false,
     );
   }

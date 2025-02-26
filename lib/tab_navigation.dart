@@ -2,7 +2,6 @@ import 'package:diary/section/section0.dart';
 import 'package:diary/section/section1.dart';
 import 'package:diary/section/section2.dart';
 import 'package:diary/section/section3.dart';
-import 'package:diary/section/section4.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -20,11 +19,10 @@ class TabNavigationState extends State<TabNavigation> {
 
   // 탭에 따른 AppBar 텍스트 리스트
   final List<String> _tabTitles = [
-    "Section0",
-    "Section1",
-    "Section2",
-    "Section3",
-    "Section4"
+    "Daily",
+    "Weekly",
+    "Monthly",
+    "Yearly",
   ];
 
   @override
@@ -69,6 +67,14 @@ class TabNavigationState extends State<TabNavigation> {
                 style: TextStyle(fontSize: 20),
               ),
             ),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.settings),
+                onPressed: () {
+                  Navigator.of(context).pushNamed('settings');
+                },
+              ),
+            ],
             backgroundColor: Colors.white, // AppBar 배경색
             elevation: 0, // 그림자 없애기
           ),
@@ -87,7 +93,6 @@ class TabNavigationState extends State<TabNavigation> {
           Center(child: Section1()),
           Center(child: Section2()),
           Center(child: Section3()),
-          Center(child: Section4()),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -111,10 +116,6 @@ class TabNavigationState extends State<TabNavigation> {
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
             label: "Section3",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: "Section4",
           ),
         ],
       ),

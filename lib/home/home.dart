@@ -100,23 +100,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SectionButton(
-                            text: "Section4",
-                            iconData: Icons.home,
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        TabNavigation(initialTabIndex: 4)),
-                              );
-                            },
-                          ),
-                        ],
-                      ),
                     ],
                   ),
                 ),
