@@ -1,7 +1,7 @@
-import 'package:diary/section/section0.dart';
-import 'package:diary/section/section1.dart';
-import 'package:diary/section/section2.dart';
-import 'package:diary/section/section3.dart';
+import 'package:diary/section/screen_daily.dart';
+import 'package:diary/section/screen_monthly.dart';
+import 'package:diary/section/screen_weekly.dart';
+import 'package:diary/section/screen_yearly.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -89,10 +89,10 @@ class TabNavigationState extends State<TabNavigation> {
           });
         },
         children: [
-          Center(child: Section0()),
-          Center(child: Section1()),
-          Center(child: Section2()),
-          Center(child: Section3()),
+          Center(child: ScreenDaily()),
+          Center(child: ScreenWeekly()),
+          Center(child: ScreenMonthly()),
+          Center(child: ScreenYearly()),
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
@@ -103,19 +103,19 @@ class TabNavigationState extends State<TabNavigation> {
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Section0",
+            label: "Daily",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Section1",
+            label: "Weekly",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Section2",
+            label: "Monthly",
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: "Section3",
+            label: "Yearly",
           ),
         ],
       ),
