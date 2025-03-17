@@ -1,7 +1,6 @@
 import 'package:diary/home/section_button.dart';
 import 'package:diary/tab_navigation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -14,17 +13,28 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+      backgroundColor: Theme.of(context).canvasColor,
       body: Column(
         children: [
           Flexible(
             flex: 1,
             child: Column(
               children: [
+                SizedBox(
+                  height: 100,
+                ),
+
                 Text(
-                  "ChromaTerm",
+                  "Diary",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
+
+                // 이미지
+                // SizedBox(
+                //   width: 50,
+                //   height: 50,
+                //   child: Image.asset('assets/diary_icon.png'),
+                // ),
 
                 // 주요 섹션 바로가기 버튼
                 Padding(
@@ -105,26 +115,26 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
 
                 // Exit 버튼
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 10),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {
-                          SystemNavigator.pop();
-                        },
-                        style: OutlinedButton.styleFrom(
-                          backgroundColor: Colors.grey,
-                        ),
-                        child: Text(
-                          "Exit",
-                          style: TextStyle(fontSize: 12),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
+                // Padding(
+                //   padding: EdgeInsets.symmetric(horizontal: 10),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.end,
+                //     children: [
+                //       ElevatedButton(
+                //         onPressed: () {
+                //           SystemNavigator.pop();
+                //         },
+                //         style: OutlinedButton.styleFrom(
+                //           backgroundColor: Theme.of(context).focusColor,
+                //         ),
+                //         child: Text(
+                //           "Exit",
+                //           style: TextStyle(fontSize: 12, color: Colors.white),
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
               ],
             ),
           ),

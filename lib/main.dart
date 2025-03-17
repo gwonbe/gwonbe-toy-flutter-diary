@@ -35,7 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(
-        primaryColor: Colors.teal,
+        primaryColor: Color(0xFF8A9A5B), // #8A9A5B 세이지그린
+        canvasColor: Color(0xFFE9E2D3),
+        focusColor: Color(0xFF867647),
       ),
       home: const HomeScreen(),
       routes: {

@@ -1,7 +1,7 @@
-import 'package:diary/section/screen_daily.dart';
-import 'package:diary/section/screen_monthly.dart';
-import 'package:diary/section/screen_weekly.dart';
-import 'package:diary/section/screen_yearly.dart';
+import 'package:diary/section/screen_1_daily.dart';
+import 'package:diary/section/screen_2_weekly.dart';
+import 'package:diary/section/screen_3_monthly.dart';
+import 'package:diary/section/screen_4_yearly.dart';
 import 'package:flutter/material.dart';
 
 class TabNavigation extends StatefulWidget {
@@ -60,12 +60,13 @@ class TabNavigationState extends State<TabNavigation> {
             ),
           ),
           child: AppBar(
-            automaticallyImplyLeading: false, // 기본 뒤로가기 버튼 제거
-            title: Center(
-              child: Text(
-                _tabTitles[_currentIndex], // 현재 탭에 맞는 텍스트 설정
-                style: TextStyle(fontSize: 20),
-              ),
+            automaticallyImplyLeading: true, // 기본 뒤로가기 버튼 표시
+            title: Text(_tabTitles[_currentIndex]), // 기본 title을 null로 설정
+            leading: IconButton(
+              icon: Icon(Icons.arrow_back), // 기본 뒤로가기 아이콘
+              onPressed: () {
+                Navigator.pop(context); // 뒤로가기 버튼 동작
+              },
             ),
             actions: [
               IconButton(
@@ -77,6 +78,7 @@ class TabNavigationState extends State<TabNavigation> {
             ],
             backgroundColor: Colors.white, // AppBar 배경색
             elevation: 0, // 그림자 없애기
+            centerTitle: true, // 기본적으로 타이틀을 가운데 배치하려면 true 설정
           ),
         ),
       ),
@@ -99,22 +101,38 @@ class TabNavigationState extends State<TabNavigation> {
         currentIndex: _currentIndex,
         onTap: _onItemTapped,
         selectedItemColor: Theme.of(context).primaryColor,
-        unselectedItemColor: Theme.of(context).hintColor,
+        unselectedItemColor: Theme.of(context).focusColor,
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Text('D',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             label: "Daily",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Text('W',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             label: "Weekly",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Text('M',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             label: "Monthly",
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Text('Y',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold)),
             label: "Yearly",
           ),
         ],
