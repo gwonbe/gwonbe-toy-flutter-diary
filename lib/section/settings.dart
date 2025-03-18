@@ -13,6 +13,12 @@ class Settings extends StatelessWidget {
             style: TextStyle(fontSize: 20),
           ),
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.favorite),
+            onPressed: () {},
+          ),
+        ],
       ),
       body: Center(child: Text("Settings")),
     );

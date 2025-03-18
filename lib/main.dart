@@ -1,6 +1,8 @@
 import 'package:diary/home/home.dart';
+import 'package:diary/provider/date_time_provider.dart';
 import 'package:diary/section/settings.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -33,17 +35,24 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-        primaryColor: Color(0xFF8A9A5B), // #8A9A5B 세이지그린
-        canvasColor: Color(0xFFE9E2D3),
-        focusColor: Color(0xFF867647),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => DateTimeProvider(),
+        ),
+      ],
+      child: MaterialApp(
+        theme: ThemeData(
+          primaryColor: Color(0xFF8A9A5B), // #8A9A5B 세이지그린
+          canvasColor: Color(0xFFE9E2D3),
+          focusColor: Color(0xFF867647),
+        ),
+        home: const HomeScreen(),
+        routes: {
+          'settings': (context) => const Settings(),
+        },
+        debugShowCheckedModeBanner: false,
       ),
-      home: const HomeScreen(),
-      routes: {
-        'settings': (context) => const Settings(),
-      },
-      debugShowCheckedModeBanner: false,
     );
   }
 }
