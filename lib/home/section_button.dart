@@ -41,32 +41,33 @@ class _SectionButtonState extends State<SectionButton> {
       child: Container(
         decoration: BoxDecoration(
           color: _isPressed ? Colors.white30 : Colors.white,
-          borderRadius: BorderRadius.circular(20),
-          border: Border.all(width: 6, color: Theme.of(context).primaryColor),
+          borderRadius: BorderRadius.circular(5),
         ),
-        width: 120,
-        height: 110,
+        width: 140,
+        height: 50,
+        margin: EdgeInsets.all(4),
         child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: 3,
-            horizontal: 3,
-          ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          padding: EdgeInsets.fromLTRB(12, 4, 4, 4),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Icon(
-                widget.iconData,
-                color: Theme.of(context).primaryColor,
-                size: 40,
+              SizedBox(
+                width: 80,
+                child: Text(
+                  widget.text,
+                  style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
               ),
               SizedBox(
-                height: 5,
-              ),
-              Text(
-                widget.text,
-                style: TextStyle(
+                width: 40,
+                child: Icon(
+                  widget.iconData,
                   color: Theme.of(context).primaryColor,
-                  fontSize: 14,
+                  size: 35,
                 ),
               ),
             ],
